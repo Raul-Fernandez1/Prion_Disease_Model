@@ -1,0 +1,5 @@
+mkdir data
+mv *.csv data/          # o mueve manualmente los CSV a esa carpeta
+git add data/
+git commit -m "Agrega datos CSV en carpeta data/"
+git push
