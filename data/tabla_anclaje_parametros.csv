@@ -1,0 +1,21 @@
+idx,symbol,name,unit,class,value,lower_bound,upper_bound,source,rationale
+0,e,Síntesis PrPC,μM/día,FIJO LIT,0.002126701576718,0.001063350788359,0.0170136126137441,Derivado: d·C_ss,e_per_line = d × [PrPC]_línea; uno por mouse_line
+1,Delta_B,Degradación PrPC,1/día,FIJO LIT,0.1260267601018082,0.1155245300933242,0.138629436111989,Dolfe et al. 2024 (PMC11601496),Vida media in vivo 5-6 días por SILAC y ASOs
+2,j1,Asociación PrPC-receptor,1/(μM·día),CALIBRAR,0.5,0.01,100.0,Sin medición directa,Bound amplio (4 órdenes); afinidades PrPC-LRP1: Kd ~1-10 nM
+3,j2,Disociación PrPC-receptor,1/día,CALIBRAR,0.5,0.01,10.0,Sin medición directa,"Cociente j2/j1 = Kd · X_rec, debería ser pequeño"
+4,X_rec,Receptores totales,μM,ESTRUCT,0.016875,0.0084375,0.135,Asumido equimolar a PrPC WT,Receptores no cambian entre líneas; usar valor WT
+5,beta,Elongación PrPSc,1/(μM·día),CALIBRAR,2123.0,40.0,484000.0,Derivado: Meisl 2021 SD_Fig_3 + SD_Fig_6; beta=kappa2/(2·b·Css),kappa_obs de SD_Fig_3 (tga20Prnp+/+); CV=0.77 entre lineas -> CALIBRAR
+6,Delta_R,Degradación PrPSc,1/día,FIJO LIT,0.0523711203089736,0.0277258872223978,0.0770163533955494,Marbiah et al. 2014 (Brain Communications),Vida media PrPSc in vivo 9-25 días (RT-QuIC)
+7,b,Fragmentación PrPSc,1/día,FIJO LIT,4.375359499886072e-05,8.327482764111105e-07,0.0022988664516661,"Meisl et al. 2021 (SD_Fig_6, multiplication rate)",Convertido de s⁻¹ × 86400
+8,n,Núcleo mínimo estable,adim,ESTRUCT,6.0,2.0,30.0,Masel et al. 1999; Silveira et al. 2005,Rango 6-30 monómeros; valor central 6 para PrP
+9,f,Masa crítica elongación,μM,CALIBRAR,0.05,0.001,1.0,Sin medición directa,Bound: similar a niveles PrPSc en plateau (~0.1-1 μM)
+10,k1,Asociación PrPSc-receptor,1/(μM·día),CALIBRAR,0.1,0.001,10.0,Sin medición directa,Más débil que j1 (PrPSc se une menos a receptores)
+11,k2,Disociación PrPSc-receptor,1/día,CALIBRAR,0.01,0.0001,1.0,Sin medición directa,PrPSc-receptor más estable que PrPC-receptor
+12,Delta_L,Aclaramiento PrPL,1/día,CALIBRAR,0.05,0.001,1.0,Sin medición directa,PrPL es oligómero tóxico; clearance > PrPSc fibrilar
+13,Lambda_L,Transformación basal a PrPL,1/(μM²·día),CALIBRAR,0.001,1e-06,1.0,Sin medición directa (Cabrera-Álvarez et al.),Bound amplio: parámetro fenomenológico de Fase 2
+14,Lambda_S,Autocatálisis sinérgica PrPL,1/(μM³·día),CALIBRAR,0.001,1e-06,1.0,Sin medición directa (Cabrera-Álvarez et al.),Bound amplio: define amplificación clínica
+15,c_q,Acumulación daño clínico,1/(μM·día),CALIBRAR,0.1,0.001,10.0,Calibrar a tiempos de incubación Sandberg 2011,q(t_clínico) = 0.5 ancla este parámetro
+16,h_R,Pendiente switch membrana,1/μM,ESTRUCT,100.0,10.0,1000.0,Estructural del switch,Pendiente alta = transición abrupta (Sandberg 2011)
+17,R_c,Fracción umbral receptores,adim,ESTRUCT,0.4,0.2,0.8,Estructural del switch,Plateau infectividad cuando 40% receptores ocupados
+18,z_sat,Saturación Hill masa PrPSc,μM,CALIBRAR,0.05,0.001,1.0,Calibrar a meseta de infectividad,Sandberg 2011: plateau a 10^8 unidades infecciosas
+19,m_hill,Orden de Hill,adim,ESTRUCT,5.0,2.0,10.0,Estructural del switch,Cooperatividad alta = transición abrupta
